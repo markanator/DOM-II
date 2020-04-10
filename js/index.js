@@ -2,15 +2,35 @@
 
 // WHEEL
 let bodyBgColor = document.getElementsByTagName("body")[0];
-console.log(bodyBgColor);
-bodyBgColor.addEventListener("wheel",(event)=>{
+
+bodyBgColor.addEventListener("wheel",()=>{
     bodyBgColor.style.background = 'linear-gradient(#c5eafa, #fff)';
 });
 
 // KEYDOWN
 window.onscroll = function(ev) {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        // you're at the bottom of the page
-        console.log("BOTTOM OF THE PAGE");
+        // console.log("BOTTOM OF THE PAGE");
+
+        bodyBgColor.addEventListener("keydown",()=>{
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // console.log("Lets go then!");
+        });
+        
     }
 };
+
+//mouseOver and mouseOut
+const heroImg = document.getElementsByTagName("img")[0];
+
+heroImg.addEventListener("mouseover",(event)=>{
+    event.target.style.opacity = ".05";
+
+});
+heroImg.addEventListener("mouseout",(event)=>{
+    event.target.style.opacity = "1";
+
+});
+
+let dragImg = document.getElementsByTagName("img")[1];
+console.log(dragImg);
